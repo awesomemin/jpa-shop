@@ -1,9 +1,11 @@
 package jpabook.jpashop;
 
+import com.thoughtworks.qdox.model.expression.Or;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
+import jpabook.jpashop.domain.*;
 
 public class JpaMain {
 
@@ -16,7 +18,8 @@ public class JpaMain {
         tx.begin();
 
         try {
-
+            Order order = new Order();
+            order.addOrderItem(new OrderItem());
 
             tx.commit();
         } catch (Exception e) {
