@@ -2,8 +2,6 @@ package jpabook.jpashop.domain;
 
 import jakarta.persistence.*;
 
-import static jakarta.persistence.FetchType.*;
-
 @Entity
 public class Delivery extends BaseEntity {
 
@@ -11,14 +9,11 @@ public class Delivery extends BaseEntity {
     @GeneratedValue
     private Long id;
 
-    @OneToOne(mappedBy = "delivery", fetch = LAZY)
+    @OneToOne(mappedBy = "delivery")
     private Order order;
 
-    private String city;
-
-    private String street;
-
-    private String zipCode;
+    @Embedded
+    private Address address;
 
     @Enumerated(EnumType.STRING)
     private DeliveryStatus status;
